@@ -1,6 +1,6 @@
 # FixIt Project
 
-A full-stack complaint management and maintenance request system for apartment complexes. Residents submit maintenance complaints (electrical, plumbing, general), admins assign them to available workers, and workers track and update complaint status. The system includes real-time notifications via WebSocket and Redis pub/sub architecture.
+A full-stack complaint management and maintenance request system for apartment complexes. Residents submit maintenance complaints (electrical, plumbing, general), admins assign them to available workers, and workers update complaint statuses in real-time.
 
 ## What this is
 
@@ -53,16 +53,52 @@ backend/
 
 ### Frontend Structure
 
-frontend/           React + Vite application
-  public/           static assets
-  src/
-    components/     reusable UI components
-    pages/          route pages (Admin, Resident, Worker, etc.)
-    contexts/       React contexts (auth, socket, etc.)
-    utils/          client helpers (api, formatters)
-    App.jsx         app-level routing and layout
-    main.jsx        React mount / client setup
-  package.json
+```text
+frontend/
+├── public/                  # Static assets
+├── src/
+│   ├── pages/               # Route-level components organized by role
+│   │   ├── General/
+│   │   │   ├── Home.jsx             # Landing page
+│   │   │   ├── About.jsx            # About page
+│   │   │   ├── Contact.jsx          # Contact page
+│   │   │   ├── Login.jsx            # User login
+│   │   │   ├── Register.jsx         # User registration
+│   │   │   └── NotFound.jsx         # 404 error page
+│   │   ├── Dashboard.jsx            # Unified dashboard for all roles
+│   │   ├── Resident/                # Resident role pages
+│   │   │   ├── SubmitComplaint.jsx  # Submit new complaint
+│   │   │   ├── ComplaintHistory.jsx # View past complaints
+│   │   │   ├── Notifications.jsx    # Real-time notifications
+│   │   │   └── Profile.jsx          # Resident profile
+│   │   ├── Worker/                  # Worker role pages
+│   │   │   ├── AssignedComplaints.jsx # View assigned work
+│   │   │   ├── UpdateComplaint.jsx  # Update complaint status
+│   │   │   └── Profile.jsx          # Worker profile
+│   │   └── Admin/                   # Admin role pages
+│   │       ├── ManageUsers.jsx      # User management
+│   │       ├── AssignComplaints.jsx # Assign work to workers
+│   │       ├── ViewAllComplaints.jsx # System-wide complaint view
+│   │       ├── ManageCategories.jsx # Complaint categories
+│   │       └── ViewLogs.jsx         # System activity logs
+│   ├── components/          # Reusable UI components
+│   │   ├── Auth/            # Authentication components
+│   │   ├── Forms/           # Reusable form components
+│   │   ├── Cards/           # Complaint/User card components
+│   │   ├── Navbar/          # Navigation header
+│   │   ├── Footer/          # Footer component
+│   │   ├── Dashboard/       # Dashboard-specific components
+│   │   ├── Modals/          # Modal dialogs
+│   │   └── Shared/          # Shared utilities (ProtectedRoute, etc.)
+│   ├── contexts/            # React Context for state management
+│   ├── utils/               # Helper functions, API calls
+│   ├── assets/              # Images and static files
+│   ├── App.jsx              # Main routing configuration
+│   ├── main.jsx             # React entry point
+│   └── index.css            # Global styles
+├── package.json
+└── vite.config.js
+```
 
 ## How It Works
 
