@@ -26,7 +26,9 @@ The system prioritizes efficiency by connecting residents with qualified workers
 
 ## How it's organized
 
-backend/ ├── config/ │ ├── db.js MongoDB connection │ ├── redisClient.js Redis pub/sub setup │ └── passport-setup.js Google OAuth configuration ├── models/ │ ├── User.js User schema (resident, worker, admin) │ └── Complaint.js Complaint schema with status tracking ├── controllers/ │ ├── userController.js User management, auth, profile │ └── complaintController.js Complaint CRUD, assignment logic ├── routes/ │ ├── userRoutes.js /api/users endpoints │ └── complaintRoutes.js /api/complaints endpoints ├── middleware/ │ └── errorMiddleware.js Global error handler ├── utils/ │ └── [Helper functions] └── server.js Express app, Socket.io, WebSocket setup
+### Backend Structure
+
+backend/ ├── config/ │ ├── db.js MongoDB connection │ ├── redisClient.js Redis pub/sub setup │ └── passport-setup.js Google OAuth configuration ├── models/ │ ├── User.js User schema (resident, worker, admin) │ └── Complaint.js Complaint schema with status tracking ├── controllers/ │ ├── userController.js User management, auth, profile │ └── complaintController.js Complaint CRUD, assignment logic ├── routes/ │ ├── userRoutes.js /api/users endpoints │ └── complaintRoutes.js /api/complaints endpoints ├── middleware/ │ └── errorMiddleware.js Global error handler ├── utils/ │ └── [Helper functions] ├── package.json └── server.js Express app, Socket.io, WebSocket setup
 
 ### Frontend Structure
 
