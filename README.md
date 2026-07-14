@@ -28,11 +28,21 @@ The system prioritizes efficiency by connecting residents with qualified workers
 
 ### Backend Structure
 
-backend/ ├── config/ │ ├── db.js │ ├── redisClient.js │ └── passport-setup.js ├── models/ │ ├── User.js │ └── Complaint.js ├── controllers/ │ ├── userController.js │ └── complaintController.js ├── routes/ │ ├── userRoutes.js │ └── complaintRoutes.js ├── middleware/ │ └── errorMiddleware.js ├── utils/ ├── package.json └── server.js
-
+backend/
+├── config/          Database, Redis, Passport setup
+├── models/          User, Complaint schemas
+├── controllers/     Business logic
+├── routes/          API endpoints
+├── middleware/      Error handling
+└── server.js        Express + Socket.io
 ### Frontend Structure
 
-frontend/src/ ├── pages/ │ ├── General/ │ ├── Dashboard.jsx │ ├── Resident/ │ ├── Worker/ │ └── Admin/ ├── components/ │ ├── Auth/ │ ├── Forms/ │ ├── Cards/ │ ├── Navbar/ │ ├── Footer/ │ ├── Dashboard/ │ ├── Modals/ │ └── Shared/ ├── contexts/ ├── utils/ ├── assets/ ├── App.jsx ├── main.jsx └── index.css
+frontend/src/
+├── pages/           Role-based pages (Admin, Resident, Worker)
+├── components/      Reusable UI components
+├── contexts/        React Context state
+├── utils/           Helpers and API calls
+└── App.jsx          Main routing
 
 ## How It Works
 
