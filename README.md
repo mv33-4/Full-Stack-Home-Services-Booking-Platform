@@ -28,15 +28,7 @@ The system prioritizes efficiency by connecting residents with qualified workers
 
 ### Backend Structure
 
-backend/            Express server, routes, controllers, DB connector
-  config/           config files (DB/clients)
-  controllers/      request handlers (business logic)
-  middleware/       auth, error handlers, etc.
-  models/           DB schema/models (MongoDB)
-  routes/           Express route modules (e.g., users, complaints, clients)
-  utils/             helpers and utilities
-  server.js         backend entrypoint (Express + Socket.IO + Redis)
-  package.json
+backend/ ├── config/ │ ├── db.js # MongoDB connection │ ├── redisClient.js # Redis pub/sub setup │ └── passport-setup.js # Google OAuth configuration ├── models/ │ ├── User.js # User schema (resident, worker, admin) │ └── Complaint.js # Complaint schema with status tracking ├── controllers/ │ ├── userController.js # User management, auth, profile │ └── complaintController.js # Complaint CRUD, assignment logic ├── routes/ │ ├── userRoutes.js # /api/users endpoints │ └── complaintRoutes.js # /api/complaints endpoints ├── middleware/ │ └── errorMiddleware.js # Global error handler ├── utils/ │ └── [helper functions] ├── package.json └── server.js # Express app, Socket.IO, Redis setup
   
 ### Frontend Structure
 
