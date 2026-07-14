@@ -28,21 +28,28 @@ The system prioritizes efficiency by connecting residents with qualified workers
 
 ### Backend Structure
 
-backend/
-├── config/          Database, Redis, Passport setup
-├── models/          User, Complaint schemas
-├── controllers/     Business logic
-├── routes/          API endpoints
-├── middleware/      Error handling
-└── server.js        Express + Socket.io
+backend/            Express server, routes, controllers, DB connector
+  config/           config files (DB/clients)
+  controllers/      request handlers (business logic)
+  middleware/       auth, error handlers, etc.
+  models/           DB schema/models (MongoDB)
+  routes/           Express route modules (e.g., users, complaints, clients)
+  utils/             helpers and utilities
+  server.js         backend entrypoint (Express + Socket.IO + Redis)
+  package.json
+  
 ### Frontend Structure
 
-frontend/src/
-├── pages/           Role-based pages (Admin, Resident, Worker)
-├── components/      Reusable UI components
-├── contexts/        React Context state
-├── utils/           Helpers and API calls
-└── App.jsx          Main routing
+frontend/           React + Vite application
+  public/           static assets
+  src/
+    components/     reusable UI components
+    pages/          route pages (Admin, Resident, Worker, etc.)
+    contexts/       React contexts (auth, socket, etc.)
+    utils/          client helpers (api, formatters)
+    App.jsx         app-level routing and layout
+    main.jsx        React mount / client setup
+  package.json
 
 ## How It Works
 
